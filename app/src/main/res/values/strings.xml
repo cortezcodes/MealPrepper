@@ -3,4 +3,7 @@
 
     <!--Button Strings -->
     <string name="grocery_list">Grocery List</string>
+
+    <!--Title Strings -->
+    <string name="label_grocery_list">MealPrepper - Grocery List</string>
 </resources>
