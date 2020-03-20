@@ -6,4 +6,9 @@
 
     <!--Title Strings -->
     <string name="label_grocery_list">MealPrepper - Grocery List</string>
+
+    <!--Text Hints. Delete later -->
+    <string name="hint_grocery_item">Grocery Item</string>
+    <string name="hint_quantity">1</string>
+    <string name="hint_units">can</string>
 </resources>
