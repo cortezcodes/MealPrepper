@@ -3,32 +3,41 @@ package com.example.android.mealprepper.grocerylist;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.mealprepper.Grocery;
 import com.example.android.mealprepper.R;
 
 import java.util.List;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHolder> {
 
-    List<Grocery> groceryList;
+    private List<Grocery> groceryList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView item, quantity, units, price;
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        TextView item, quantity, units;
+        ImageButton editButton;
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             this.item = view.findViewById(R.id.text_view_item_name);
             this.quantity = view.findViewById(R.id.text_view_item_quantity);
             this.units = view.findViewById(R.id.text_view_item_unit);
-            //this.price = view.findViewById(R.id.text_view_price);
+            this.editButton = view.findViewById(R.id.image_button_edit);
+            this.editButton.setOnClickListener(this);
+        }
+        
+        public void onClick(View view){
+            Toast.makeText(view.getContext(), "Edit Button Selected", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public GroceryAdapter(List<Grocery> groceries) {
+    GroceryAdapter(List<Grocery> groceries) {
         this.groceryList = groceries;
     }
 
@@ -37,6 +46,12 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHo
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.grocery_list_row, parent, false);
 
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Selected Grocery Item", Toast.LENGTH_SHORT).show();
+            }
+        });
         return new MyViewHolder(itemView);
     }
 
@@ -46,8 +61,6 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHo
         holder.item.setText(grocery.getName());
         holder.quantity.setText(Integer.toString(grocery.getQuantity()));
         holder.units.setText(grocery.getUnitOfMeasurement());
-        //String price = "Price: $" + grocery.getPricePerUnit();
-        //holder.price.setText(price);
     }
 
     @Override

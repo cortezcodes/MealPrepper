@@ -16,7 +16,7 @@
     <string name="hint_grocery">Item</string>
     <string name="hint_quantity">0</string>
     <string name="hint_notes">Notes</string>
-    
+
     <!--Grocery Unit of Measure Spinner String Array -->
     <string-array name="units_array">
         <item>Cans</item>
@@ -29,4 +29,7 @@
         <item>bag</item>
         <item>other</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
