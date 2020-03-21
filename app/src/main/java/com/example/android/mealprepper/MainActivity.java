@@ -1,12 +1,11 @@
 package com.example.android.mealprepper;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.example.android.mealprepper.grocerylist.GroceryListActivity;
+import com.example.android.mealprepper.grocerylist.GroceryFragmentActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openGroceryListActivity(View v){
-        Intent intent = new Intent(MainActivity.this, GroceryListActivity.class);
+        Intent intent = new Intent(MainActivity.this, GroceryFragmentActivity.class);
         startActivity(intent);
     }
 
