@@ -3,12 +3,30 @@
 
     <!--Button Strings -->
     <string name="grocery_list">Grocery List</string>
+    <string name="grocery_item_add">Add</string>
+    <string name="grocery_item_cancel">Cancel</string>
 
     <!--Title Strings -->
     <string name="label_grocery_list">MealPrepper - Grocery List</string>
 
     <!--Content Descriptions -->
     <string name="description_add_cart">Add a new grocery to your list.</string>
-    <string name="hint_quantity">1</string>
-    <string name="hint_units">can</string>
+
+    <!--Hints for Grocery Input -->
+    <string name="hint_grocery">Item</string>
+    <string name="hint_quantity">0</string>
+    <string name="hint_notes">Notes</string>
+    
+    <!--Grocery Unit of Measure Spinner String Array -->
+    <string-array name="units_array">
+        <item>Cans</item>
+        <item>Oz</item>
+        <item>Pound</item>
+        <item>Gallon</item>
+        <item>Carton</item>
+        <item>Bottle</item>
+        <item>Six Pack</item>
+        <item>bag</item>
+        <item>other</item>
+    </string-array>
 </resources>

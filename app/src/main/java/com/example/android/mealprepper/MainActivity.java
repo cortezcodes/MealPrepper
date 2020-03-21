@@ -1,11 +1,10 @@
 package com.example.android.mealprepper;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import com.example.android.mealprepper.grocerylist.GroceryListActivity;
 
 public class MainActivity extends AppCompatActivity {
 

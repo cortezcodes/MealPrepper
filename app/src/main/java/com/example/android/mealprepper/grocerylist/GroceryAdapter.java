@@ -1,15 +1,15 @@
-package com.example.android.mealprepper;
+package com.example.android.mealprepper.grocerylist;
 
-import android.content.Context;
-import android.graphics.Movie;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.android.mealprepper.Grocery;
+import com.example.android.mealprepper.R;
+
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHolder> {
@@ -24,7 +24,7 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHo
             this.item = view.findViewById(R.id.text_view_item_name);
             this.quantity = view.findViewById(R.id.text_view_item_quantity);
             this.units = view.findViewById(R.id.text_view_item_unit);
-            this.price = view.findViewById(R.id.text_view_price);
+            //this.price = view.findViewById(R.id.text_view_price);
         }
     }
 
@@ -46,8 +46,8 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHo
         holder.item.setText(grocery.getName());
         holder.quantity.setText(Integer.toString(grocery.getQuantity()));
         holder.units.setText(grocery.getUnitOfMeasurement());
-        String price = "Price: $" + grocery.getPricePerUnit();
-        holder.price.setText(price);
+        //String price = "Price: $" + grocery.getPricePerUnit();
+        //holder.price.setText(price);
     }
 
     @Override

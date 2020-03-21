@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GroceryListActivity"
+        <activity android:name=".grocerylist.GroceryListActivity"
             android:label="@string/grocery_list"/>
     </application>
 
