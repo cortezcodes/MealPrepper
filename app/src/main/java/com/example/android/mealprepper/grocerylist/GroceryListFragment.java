@@ -1,11 +1,11 @@
 package com.example.android.mealprepper.grocerylist;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.android.mealprepper.Grocery;
 import com.example.android.mealprepper.R;
@@ -26,12 +25,6 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class GroceryListFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private List<Grocery> groceryList = new ArrayList<>();
     private RecyclerView recyclerView;
     private GroceryAdapter mAdapter;
@@ -54,19 +47,35 @@ public class GroceryListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_grocery_list, container,false);
+
     }
 
+    /**
+     * Where all the subclass views care initiated.
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+
+        //Connect Recycler View and Grocery Adapter to populate the Fragment
         recyclerView = view.findViewById(R.id.grocery_recycler_view);
         mAdapter = new GroceryAdapter(groceryList);
 
+        //Performance
+        recyclerView.setHasFixedSize(true);
+
+        //use a linearlayout manager for vertical scrolling
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(super.getContext());
         recyclerView.setLayoutManager(mLayoutManager);
+
+        //set line divders between each list item
         recyclerView.addItemDecoration(new DividerItemDecoration(super.getContext(), LinearLayoutManager.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        //attach adapter to create viewholders
         recyclerView.setAdapter(mAdapter);
+
 
         testGroceryData();
 
@@ -75,7 +84,7 @@ public class GroceryListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Create fragment and give it an argument specifying the article it should show
-                GroceryFragment newGroceryFragment = new GroceryFragment();
+                GroceryDetailedFragment newGroceryFragment = new GroceryDetailedFragment();
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout_container, newGroceryFragment);
@@ -85,7 +94,6 @@ public class GroceryListFragment extends Fragment {
             }
         });
     }
-
 
 
     private void testGroceryData(){
