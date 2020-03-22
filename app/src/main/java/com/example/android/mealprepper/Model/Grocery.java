@@ -1,4 +1,4 @@
-package com.example.android.mealprepper;
+package com.example.android.mealprepper.Model;
 
 public class Grocery {
     private String name;

@@ -1,35 +1,43 @@
-package com.example.android.mealprepper.grocerylist;
+package com.example.android.mealprepper.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.android.mealprepper.R;
+import com.example.android.mealprepper.Utilities.GroceryUtil;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 public class GroceryDetailedFragment extends Fragment {
     private Button cancelButton;
     private TextView itemName, quantity;
+    private Spinner unitSpinner;
+    private ArrayAdapter<String> spinnerDataAdapter;
 
-    // The onCreateView method is called when Fragment should create its View object hierarchy,
-    // either dynamically or via XML layout inflation.
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        // Defines the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_grocery, parent, false);
+        return inflater.inflate(R.layout.fragment_grocery_detailed, parent, false);
     }
 
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         itemName = view.findViewById(R.id.edit_text_item_name);
         quantity = view.findViewById(R.id.edit_text_quantity);
+        unitSpinner = view.findViewById(R.id.spinner_units);
+
+        //add the options within the unit spinner
+        spinnerDataAdapter = new ArrayAdapter<String>(this.getContext(),
+                android.R.layout.simple_spinner_dropdown_item, GroceryUtil.getSpinnerData());
+        unitSpinner.setAdapter(spinnerDataAdapter);
 
         //if arguments were passed from another fragment set the information in the views;
         Bundle bundle = getArguments();

@@ -3,6 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frame_layout_container"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".grocerylist.GroceryFragmentActivity">
+    android:layout_height="match_parent" tools:context=".Activities.GroceryFragmentActivity">
 
 </FrameLayout>

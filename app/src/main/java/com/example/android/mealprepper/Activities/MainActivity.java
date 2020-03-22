@@ -1,4 +1,4 @@
-package com.example.android.mealprepper;
+package com.example.android.mealprepper.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.android.mealprepper.grocerylist.GroceryFragmentActivity;
+import com.example.android.mealprepper.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button groceryButton;

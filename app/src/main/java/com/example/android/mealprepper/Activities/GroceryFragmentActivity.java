@@ -1,9 +1,9 @@
-package com.example.android.mealprepper.grocerylist;
+package com.example.android.mealprepper.Activities;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import com.example.android.mealprepper.R;
+import com.example.android.mealprepper.Fragments.GroceryListFragment;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 

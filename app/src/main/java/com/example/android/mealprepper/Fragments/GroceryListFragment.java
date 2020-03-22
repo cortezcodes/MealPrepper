@@ -1,7 +1,6 @@
-package com.example.android.mealprepper.grocerylist;
+package com.example.android.mealprepper.Fragments;
 
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,8 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.android.mealprepper.Grocery;
+import com.example.android.mealprepper.Fragments.GroceryDetailedFragment;
+import com.example.android.mealprepper.Model.Grocery;
 import com.example.android.mealprepper.R;
+import com.example.android.mealprepper.Adapters.GroceryAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

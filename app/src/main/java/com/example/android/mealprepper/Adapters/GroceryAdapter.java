@@ -1,4 +1,4 @@
-package com.example.android.mealprepper.grocerylist;
+package com.example.android.mealprepper.Adapters;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +8,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.mealprepper.Grocery;
+import com.example.android.mealprepper.Model.Grocery;
 import com.example.android.mealprepper.R;
+import com.example.android.mealprepper.Fragments.GroceryDetailedFragment;
+import com.example.android.mealprepper.Utilities.GroceryUtil;
 
 import java.util.List;
 
@@ -20,9 +22,18 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHo
 
     private List<Grocery> groceryList;
 
+    /**
+     * Constructor
+     * @param groceries List of Groceries to populate RecyclerView
+     */
+    public GroceryAdapter(List<Grocery> groceries) {
+        this.groceryList = groceries;
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView item, quantity, units;
         ImageButton editButton;
+
 
         MyViewHolder(View view) {
             super(view);
@@ -65,9 +76,7 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.MyViewHo
         }
     }
 
-    GroceryAdapter(List<Grocery> groceries) {
-        this.groceryList = groceries;
-    }
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

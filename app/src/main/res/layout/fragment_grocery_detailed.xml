@@ -37,8 +37,7 @@
             android:id="@+id/spinner_units"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:entries="@array/units_array"/>
+            android:layout_weight="1" />
     </LinearLayout>
 
     <EditText
