@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "321ef1a4eb0b044946a3a51c25f60c09",
+    "entities": [
+      {
+        "tableName": "grocery_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`groceryId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `item` TEXT, `quantity` INTEGER NOT NULL, `unitOfMeasurement` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "groceryId",
+            "columnName": "groceryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "item",
+            "columnName": "item",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "quantity",
+            "columnName": "quantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unitOfMeasurement",
+            "columnName": "unitOfMeasurement",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "groceryId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '321ef1a4eb0b044946a3a51c25f60c09')"
+    ]
+  }
+}

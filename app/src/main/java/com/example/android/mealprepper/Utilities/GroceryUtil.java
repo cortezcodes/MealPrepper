@@ -2,6 +2,8 @@ package com.example.android.mealprepper.Utilities;
 
 import android.widget.ArrayAdapter;
 
+import com.example.android.mealprepper.Model.Grocery;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class GroceryUtil {
     private static ArrayList<String> spinnerSelections = new ArrayList<String>(){
         {
             add(" ");
-            add("Cans");
+            add("Can");
             add("Oz");
             add("Lb");
             add("Gal");
@@ -23,9 +25,11 @@ public class GroceryUtil {
             add("Bottle");
             add("Six Pack");
             add("Bag");
-            add("other");
         }
     };
+
+
+
 
     public static void addUnitOfMeasure(String units){
         spinnerSelections.add(units);

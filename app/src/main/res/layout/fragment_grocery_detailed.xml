@@ -33,11 +33,12 @@
             android:hint="@string/hint_quantity"
             android:layout_weight="1"/>
 
-        <Spinner
-            android:id="@+id/spinner_units"
+        <EditText
+            android:id="@+id/edit_text_units"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:hint="Cans"/>
     </LinearLayout>
 
     <EditText

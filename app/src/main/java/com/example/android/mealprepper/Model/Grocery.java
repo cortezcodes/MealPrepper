@@ -1,32 +1,44 @@
 package com.example.android.mealprepper.Model;
 
+import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "grocery_table")
 public class Grocery {
-    private String name;
+    @PrimaryKey(autoGenerate = true)
+    private int groceryId;
+
+    @ColumnInfo(name = "item")
+    private String item;
+
+    @ColumnInfo(name = "quantity")
     private int quantity;
+
+    @ColumnInfo(name = "unitOfMeasurement")
     private String unitOfMeasurement;
-    private double pricePerUnit;
 
-    //TODO Implement price grabbing from Major Grocery Stores
-    public Grocery(String name, int quantity, String unitOfMeasurement, double pricePerUnit ){
-        this.name = name;
+
+    public Grocery(String item, int quantity, @Nullable String unitOfMeasurement){
+        this.item = item;
         this.quantity = quantity;
-        this.unitOfMeasurement = unitOfMeasurement;
-        this.pricePerUnit = pricePerUnit;
+        if(unitOfMeasurement == null){
+            this.unitOfMeasurement = " ";
+        }else{
+            this.unitOfMeasurement = unitOfMeasurement;
+        }
+
     }
 
-    public Grocery(String name, int quantity, String unitOfMeasurement){
-        this.name = name;
-        this.quantity = quantity;
-        this.unitOfMeasurement = unitOfMeasurement;
-    }
 
     //All Getters and Setters below here
-    public String getName() {
-        return name;
+    public String getItem() {
+        return item;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItem(String item) {
+        this.item = item;
     }
 
     public int getQuantity() {
@@ -45,11 +57,11 @@ public class Grocery {
         this.unitOfMeasurement = unitOfMeasurement;
     }
 
-    public double getPricePerUnit() {
-        return pricePerUnit;
+    public int getGroceryId() {
+        return groceryId;
     }
 
-    public void setPricePerUnit(double pricePerUnit) {
-        this.pricePerUnit = pricePerUnit;
+    public void setGroceryId(int groceryId) {
+        this.groceryId = groceryId;
     }
 }
