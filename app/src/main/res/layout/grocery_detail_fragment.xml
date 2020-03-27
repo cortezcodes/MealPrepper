@@ -41,23 +41,17 @@
             android:hint="Cans"/>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/edit_text_notes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linear_layout_quantity"
-        android:inputType="textMultiLine"
-        android:hint="@string/hint_notes"/>
+<!--TODO Add Notes input for each input-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/edit_text_notes"
+        android:layout_below="@id/linear_layout_quantity"
         android:layout_alignParentStart="true">
 
         <Button
-            android:id="@+id/button_add"
+            android:id="@+id/button_add_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
