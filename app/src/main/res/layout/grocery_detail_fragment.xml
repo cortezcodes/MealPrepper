@@ -15,6 +15,7 @@
         android:layout_alignParentStart="true"
         android:textSize="24sp"
         android:hint="@string/hint_grocery"
+        android:maxLines="1"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"/>
 
@@ -31,10 +32,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/hint_quantity"
+            android:maxLines="1"
             android:layout_weight="1"/>
 
-        <EditText
-            android:id="@+id/edit_text_units"
+        <Spinner
+            android:id="@+id/unit_spinner"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
