@@ -8,4 +8,8 @@
     <color name="colorMainButtons">#B061FF</color>
     <color name="colorButtonText">#DED1EB</color>
 
+    <!-- List View Item Buttons -->
+    <color name="colorListItem">#B388FF</color>
+    <color name="colorListText">#F8F7FC</color>
+
 </resources>

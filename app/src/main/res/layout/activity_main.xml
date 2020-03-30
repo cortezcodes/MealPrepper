@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/main_view_bg_gradient">
 
     <Button
         android:id="@+id/button_grocery_activity"

@@ -5,6 +5,9 @@
     <string name="grocery_list">Grocery List</string>
     <string name="grocery_item_add">Add</string>
     <string name="grocery_item_cancel">Cancel</string>
+    <string name="grocery_item_edit">Edit</string>
+    <string name="grocery_item_save_changes">Save Changes</string>
+    <string name="grocery_item_delete">Delete</string>
 
     <!--Title Strings -->
     <string name="label_grocery_list">MealPrepper - Grocery List</string>

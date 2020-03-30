@@ -77,9 +77,9 @@ public abstract class MealPrepDatabase extends RoomDatabase {
         }
 
         private Grocery[] createGroceries(){
-            Grocery grocery1 = new Grocery("Fruit", 5, "Pieces");
-            Grocery grocery2 = new Grocery("Bread", 4, "Loaves");
-            Grocery grocery3 = new Grocery("Meat", 2, "Lbs");
+            Grocery grocery1 = new Grocery("Fruit", 5, "packages");
+            Grocery grocery2 = new Grocery("Bread", 4, "loaves");
+            Grocery grocery3 = new Grocery("Meat", 2, "lb");
             Grocery grocery4 = new Grocery("Pasta", 3, "Boxes");
             Grocery grocery5 = new Grocery("Pizza", 1, " ");
             Grocery[] groceries = {grocery1, grocery2, grocery3, grocery4, grocery5};

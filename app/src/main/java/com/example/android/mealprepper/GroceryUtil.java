@@ -19,11 +19,12 @@ public class GroceryUtil {
         return pluralUnits.get(position);
     }
 
-    public static List<String> getSingleUnits() {
+    public static List<String> getSingleUnits () {
         return singleUnits;
     }
 
     public static List<String> getPluralUnits() {
         return pluralUnits;
     }
+
 }

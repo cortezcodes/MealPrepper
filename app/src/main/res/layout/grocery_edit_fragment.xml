@@ -5,10 +5,11 @@
     android:paddingBottom="@dimen/row_padding_vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/row_padding_vertical">
+    android:paddingTop="@dimen/row_padding_vertical"
+    android:background="@drawable/detailed_view_bg_gradient">
 
     <EditText
-        android:id="@+id/edit_text_item_name"
+        android:id="@+id/groceryEditFragment_editText_itemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,26 +18,26 @@
         android:hint="@string/hint_grocery"
         android:maxLines="1"
         android:paddingStart="8dp"
-        android:paddingEnd="8dp"/>
+        android:paddingEnd="8dp" />
 
     <LinearLayout
-        android:id="@+id/linear_layout_quantity"
+        android:id="@+id/groceryEditFragment_linearLayout_quantityRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/edit_text_item_name">
+        android:layout_below="@id/groceryEditFragment_editText_itemName">
 
         <EditText
-            android:id="@+id/edit_text_quantity"
+            android:id="@+id/groceryEditFragment_editText_quantity"
             android:inputType="number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/hint_quantity"
             android:maxLines="1"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <Spinner
-            android:id="@+id/unit_spinner"
+            android:id="@+id/groceryEditFragment_spinner_units"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -46,29 +47,37 @@
 <!--TODO Add Notes input for each input-->
 
     <LinearLayout
+        android:id="@+id/groceryEditFragment_linearLayout_buttonRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/linear_layout_quantity"
+        android:layout_below="@id/groceryEditFragment_linearLayout_quantityRow"
         android:layout_alignParentStart="true">
 
         <Button
-            android:id="@+id/button_add_edit"
+            android:id="@+id/groceryEditFragment_button_save_changes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="8dp"
-            android:text="@string/grocery_item_add"/>
+            android:text="@string/grocery_item_save_changes"/>
 
         <Button
-            android:id="@+id/button_cancel"
+            android:id="@+id/groceryEditFragment_button_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:text="@string/grocery_item_cancel"/>
-
     </LinearLayout>
+
+        <Button
+            android:id="@+id/groceryEditFragment_button_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/groceryEditFragment_linearLayout_buttonRow"
+            android:layout_alignParentStart="true"
+            android:text="@string/grocery_item_delete"/>
 
 
 

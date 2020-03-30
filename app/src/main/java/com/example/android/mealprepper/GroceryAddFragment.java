@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 /**
  * Fragment used to add and edit Grocery List Items
  */
-public class GroceryDetailFragment extends Fragment{
+public class GroceryAddFragment extends Fragment{
     private EditText itemEditText, quantityEditText;
     private Spinner unitSpinner;
     private Button addEditButton, cancelButton;
@@ -36,13 +36,14 @@ public class GroceryDetailFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.grocery_detail_fragment, container, false);
+        View view = inflater.inflate(R.layout.grocery_add_fragment, container, false);
 
         this.itemEditText = view.findViewById(R.id.edit_text_item_name);
         this.quantityEditText = view.findViewById(R.id.edit_text_quantity);
         this.unitSpinner = view.findViewById(R.id.unit_spinner);
         this.addEditButton = view.findViewById(R.id.button_add_edit);
         this.cancelButton = view.findViewById(R.id.button_cancel);
+
 
         //Setup unit spinner
         spinnerOptions = new ArrayList<>();
@@ -72,13 +73,9 @@ public class GroceryDetailFragment extends Fragment{
                 if(s.length() != 0) {
                     if (Integer.parseInt(s.toString()) > 1) {
                         spinnerOptionControl(true);
-                        //spinnerOptions.clear();
-                       // spinnerOptions.addAll(GroceryUtil.getPluralUnits());
 
                     } else {
                         spinnerOptionControl(false);
-                       //spinnerOptions.clear();
-                        //spinnerOptions.addAll(GroceryUtil.getSingleUnits());
                     }
                 }
             }
@@ -126,16 +123,10 @@ public class GroceryDetailFragment extends Fragment{
             spinnerOptions.clear();
             spinnerOptions.addAll(GroceryUtil.getPluralUnits());
             spinnerAdapter.notifyDataSetChanged();
-            //spinnerAdapter.clear();
-           // spinnerAdapter.addAll(spinnerOptions);
-
-        }else{
+        }else {
             spinnerOptions.clear();
             spinnerOptions.addAll(GroceryUtil.getSingleUnits());
             spinnerAdapter.notifyDataSetChanged();
-            //spinnerAdapter.clear();
-            //spinnerAdapter.addAll(spinnerOptions);
         }
-
     }
 }
