@@ -25,4 +25,10 @@ public class GroceryViewModel extends AndroidViewModel {
     public void insert(Grocery grocery){
         mRepository.insert(grocery);
     }
+
+    public void delete(Grocery grocery){
+        mRepository.delete(grocery);
+    }
+
+    //TODO Add delete wrapper function
 }

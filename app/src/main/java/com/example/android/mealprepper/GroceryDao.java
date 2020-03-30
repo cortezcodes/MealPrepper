@@ -20,6 +20,9 @@ public interface GroceryDao {
     @Query("DELETE FROM grocery_table")
     void deleteList();
 
+    @Delete
+    void deleteItem(Grocery grocery);
+
     @Query("SELECT * FROM grocery_table")
     LiveData<List<Grocery>> getList();
 

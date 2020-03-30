@@ -19,6 +19,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 public class GroceryEditFragment extends Fragment {
     private static Grocery grocery;
@@ -27,17 +28,18 @@ public class GroceryEditFragment extends Fragment {
     private Button saveButton, cancelButton, deleteButton;
     private List<String> spinnerOptions;
     private ArrayAdapter<String> spinnerAdapter;
+    private GroceryViewModel mGroceryViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         if( args != null){
-            int id = args.getInt(Grocery.UNITS_KEY);
+            int id = args.getInt(Grocery.ID_KEY);
             String item = args.getString(Grocery.ITEM_KEY);
             int amount = args.getInt(Grocery.AMOUNT_KEY);
             String units = args.getString(Grocery.UNITS_KEY);
-            grocery = new Grocery(item, amount, units);
+            grocery = new Grocery(id, item, amount, units);
         }
 
     }
@@ -52,6 +54,11 @@ public class GroceryEditFragment extends Fragment {
         saveButton = view.findViewById(R.id.groceryEditFragment_button_save_changes);
         cancelButton = view.findViewById(R.id.groceryEditFragment_button_cancel);
         deleteButton = view.findViewById(R.id.groceryEditFragment_button_delete);
+        mGroceryViewModel = new GroceryViewModel(getActivity().getApplication());
+
+        //Get a new or existing ViewModel form the ViewModelProvider
+        ViewModelProvider.Factory factory = new ViewModelProvider.AndroidViewModelFactory(this.getActivity().getApplication());
+        mGroceryViewModel = new ViewModelProvider(this, factory).get(GroceryViewModel.class);
 
         //set the views with the selected grocery information
         itemView.setText(grocery.getItem());
@@ -112,7 +119,9 @@ public class GroceryEditFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Delete item", Toast.LENGTH_SHORT).show();
+                mGroceryViewModel.delete(grocery);
+                exitDetailedView();
+
             }
         });
 

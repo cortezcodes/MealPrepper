@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 /**
@@ -32,6 +33,14 @@ public class Grocery {
     private String unitOfMeasure;
 
     public Grocery(@NonNull String item, int amount, String unitOfMeasure){
+        this.item = item;
+        this.amount = amount;
+        this.unitOfMeasure = unitOfMeasure;
+    }
+
+    @Ignore
+    public Grocery(int id, String item, int amount, String unitOfMeasure){
+        this.id = id;
         this.item = item;
         this.amount = amount;
         this.unitOfMeasure = unitOfMeasure;

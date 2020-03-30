@@ -29,17 +29,37 @@ public class GroceryRepository {
         new insertAsyncTask(mGroceryDao).execute(grocery);
     }
 
+    public void delete(Grocery grocery){new deleteAsyncTask(mGroceryDao).execute(grocery);}
+
+    /**
+     * ASyncTask used to insert a single Grocery object into the database
+     */
     private static class insertAsyncTask extends AsyncTask<Grocery, Void, Void>{
 
         private GroceryDao mAsyncTaskDao;
 
-        insertAsyncTask(GroceryDao dao){
+        private insertAsyncTask(GroceryDao dao){
             mAsyncTaskDao = dao;
         }
 
         @Override
         protected Void doInBackground(final Grocery... params){
             mAsyncTaskDao.insertItem(params[0]);
+            return null;
+        }
+    }
+
+    /**
+     * ASyncTask used to delete a single Grocery object from the databsse
+     */
+    private static class deleteAsyncTask extends AsyncTask<Grocery, Void, Void>{
+        private GroceryDao mAsyncTaskDao;
+
+        private deleteAsyncTask(GroceryDao dao){ mAsyncTaskDao = dao;}
+
+        @Override
+        protected Void doInBackground(Grocery... groceries) {
+            mAsyncTaskDao.deleteItem(groceries[0]);
             return null;
         }
     }
