@@ -22,7 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 public class GroceryEditFragment extends Fragment {
-    private static Grocery grocery;
+    private Grocery grocery;
     private EditText itemView, amountView;
     private Spinner spinnerView;
     private Button saveButton, cancelButton, deleteButton;
@@ -115,7 +115,6 @@ public class GroceryEditFragment extends Fragment {
             }
         });
 
-        //TODO delete save functionality on EditFragment
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,11 +124,17 @@ public class GroceryEditFragment extends Fragment {
             }
         });
 
-        //TODO Add save functionality on EditFragment
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "save Changes", Toast.LENGTH_SHORT).show();
+                if(isValidateForm()){
+                    String item = itemView.getText().toString();
+                    int amount = Integer.parseInt(amountView.getText().toString());
+                    String unit = spinnerView.getSelectedItem().toString();
+                    mGroceryViewModel.update(new Grocery(grocery.getId(), item, amount, unit));
+                    exitDetailedView();
+                }
+                Toast.makeText(getContext(), "Invalid Form", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -173,5 +178,19 @@ public class GroceryEditFragment extends Fragment {
      */
     private void exitDetailedView(){
         getActivity().getSupportFragmentManager().popBackStack();
+    }
+
+    /**
+     * Validates EditText fields that they are not empty
+     * @return
+     */
+    private boolean isValidateForm(){
+        String item = itemView.getText().toString();
+        String amount = amountView.getText().toString();
+
+        if(item.equals("") || amount.equals("") || amount.equals("0")){
+            return false;
+        }
+        return true;
     }
 }

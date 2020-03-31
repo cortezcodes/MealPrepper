@@ -20,7 +20,7 @@ public abstract class MealPrepDatabase extends RoomDatabase {
 
     private static MealPrepDatabase INSTANCE;
 
-    static MealPrepDatabase getDatabase(final Context context){
+    public static MealPrepDatabase getDatabase(final Context context){
         if(INSTANCE == null){
             synchronized (MealPrepDatabase.class){
                 if(INSTANCE == null){

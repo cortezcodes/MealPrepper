@@ -30,5 +30,5 @@ public class GroceryViewModel extends AndroidViewModel {
         mRepository.delete(grocery);
     }
 
-    //TODO Add delete wrapper function
+    public void update(Grocery grocery){ mRepository.update(grocery);}
 }

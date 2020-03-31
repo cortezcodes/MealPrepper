@@ -31,6 +31,8 @@ public class GroceryRepository {
 
     public void delete(Grocery grocery){new deleteAsyncTask(mGroceryDao).execute(grocery);}
 
+    public void update(Grocery grocery){new updateAsyncTask(mGroceryDao).execute(grocery);}
+
     /**
      * ASyncTask used to insert a single Grocery object into the database
      */
@@ -60,6 +62,21 @@ public class GroceryRepository {
         @Override
         protected Void doInBackground(Grocery... groceries) {
             mAsyncTaskDao.deleteItem(groceries[0]);
+            return null;
+        }
+    }
+
+    /**
+     * AsyncTask used to update a single Grocery Object from the database
+     */
+    private static class updateAsyncTask extends AsyncTask<Grocery, Void, Void>{
+        private GroceryDao mAsyncTaskDao;
+
+        private updateAsyncTask(GroceryDao dao){mAsyncTaskDao = dao;}
+
+        @Override
+        protected Void doInBackground(Grocery... groceries) {
+            mAsyncTaskDao.updateItem(groceries[0]);
             return null;
         }
     }

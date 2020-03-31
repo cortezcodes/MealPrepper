@@ -7,6 +7,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 /**
  * Interface used by the Room framework Where SQL queries are created
@@ -22,6 +23,9 @@ public interface GroceryDao {
 
     @Delete
     void deleteItem(Grocery grocery);
+
+    @Update(entity = Grocery.class)
+    void updateItem(Grocery grocery);
 
     @Query("SELECT * FROM grocery_table")
     LiveData<List<Grocery>> getList();

@@ -39,7 +39,7 @@ public class Grocery {
     }
 
     @Ignore
-    public Grocery(int id, String item, int amount, String unitOfMeasure){
+    public Grocery(int id, @NonNull String item, int amount, String unitOfMeasure){
         this.id = id;
         this.item = item;
         this.amount = amount;
